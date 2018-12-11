@@ -1,11 +1,11 @@
-package Listener;
+package listener;
 
 import org.junit.runner.Description;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 
-public class ExecucaoListener extends RunListener {
+public class ConfigListener extends RunListener {
 
 	/**
 	 * Chamado antes de quaisquer testes terem sido executados.
@@ -23,7 +23,7 @@ public class ExecucaoListener extends RunListener {
 
 	/**
 	 * 
-	 * Chamado quando um teste atômico está prestes a ser iniciado.
+	 * Chamado quando um teste está prestes a ser iniciado.
 	 */
 	public void testStarted(Description description) throws java.lang.Exception {
 		System.out.println("Iniciando a execução do caso de teste : " + description.getMethodName());
@@ -31,7 +31,7 @@ public class ExecucaoListener extends RunListener {
 
 	/**
 	 * 
-	 * Chamado quando um teste atômico termina, se o teste é bem-sucedido ou falha.
+	 * Chamado quando um teste termina, se o teste é bem-sucedido ou falha.
 	 */
 	public void testFinished(Description description) throws java.lang.Exception {
 		System.out.println("Execução finalizada do caso de teste : " + description.getMethodName());
@@ -40,7 +40,7 @@ public class ExecucaoListener extends RunListener {
 	/**
 	 * 
 	 * 
-	 * Chamado quando um teste atômico falha.
+	 * Chamado quando um teste falha.
 	 */
 	public void testFailure(Failure failure) throws java.lang.Exception {
 		System.out.println("Execução do caso de teste falhou : " + failure.getMessage());

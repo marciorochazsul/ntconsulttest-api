@@ -11,13 +11,13 @@ import static org.hamcrest.Matchers.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import executavel.RunSuiteTest;
+import runListener.RunListenerTest;
 
 
 
 
 
-@RunWith(RunSuiteTest.class)
+@RunWith(RunListenerTest.class)
 public class CenariosOK {
 	
 	
@@ -58,18 +58,31 @@ public class CenariosOK {
 	public void editandoPostComSucesso() {		
 		
 		String myJson = "{\"userId\": \"10\",\"id\": \"1\",\"title\": \"Editando dados\",\"body\": \"Teste Ntconsult\"}";
+		String id = "1";
 		
 	given()
 	   .header("Content-Type","application/json")
   	   .body(myJson)
   	 .when()
-  	   .put("https://jsonplaceholder.typicode.com/posts/1")
+  	   .put("https://jsonplaceholder.typicode.com/posts/"+id+"")
   	.then()
   	   .statusCode(200)
   	   .and()
   	   .body("title",equalTo("Editando dados"));
 	}
 
+	@Test
+	public void deletaPostComSucesso() {		
+		
+		String id = "1";
+		
+	given()
+	   .header("Content-Type","application/json")
+  	.when()
+  	   .delete("https://jsonplaceholder.typicode.com/posts/"+id+"")
+  	.then()
+  	   .statusCode(200);
+  	   	}
 	
 	
 	

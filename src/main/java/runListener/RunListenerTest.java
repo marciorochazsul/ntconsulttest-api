@@ -1,19 +1,19 @@
-package executavel;
+package runListener;
 
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
 
-import Listener.ExecucaoListener;
+import listener.ConfigListener;
 
-public class RunSuiteTest extends BlockJUnit4ClassRunner {
+public class RunListenerTest extends BlockJUnit4ClassRunner {
 
-    public RunSuiteTest(Class<?> klass) throws InitializationError {
+    public RunListenerTest(Class<?> klass) throws InitializationError {
         super(klass);
     }
 
     @Override public void run(RunNotifier notifier){
-        notifier.addListener(new ExecucaoListener());
+        notifier.addListener(new ConfigListener());
         notifier.fireTestRunStarted(getDescription());
         super.run(notifier);
     }
