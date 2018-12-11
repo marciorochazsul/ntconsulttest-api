@@ -32,7 +32,7 @@ public class CenariosExcecao {
 		String myJson = "{\"userId\": \"1234\",\"title\": \"Post Teste\",\"body\": \"Teste Ntconsult\"}";
 		
 	given()
-	   .header("Content-Type","application/json").log().all()
+	   .header("Content-Type","application/json")
   	   .body(myJson)
   	 .when()
   	   .post("/")
